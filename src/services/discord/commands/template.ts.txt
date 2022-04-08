@@ -1,0 +1,30 @@
+// Local Imports
+import { BaseCommand } from '../classes/BaseCommand';
+
+// Local Types Imports
+import type { CommandContext } from '../classes/CommandContext';
+
+// External Types Imports
+import type { Guild, GuildMember } from 'discord.js';
+
+module.exports = new BaseCommand({
+	id: '961918373757870141',
+	guild_id: '957680517380178000',
+	name: 'puti',
+	description: 'tests',
+	run: async ({ interaction }: CommandContext): Promise<any> => {
+		const group = interaction.options.getSubcommandGroup();
+
+		const subcommand = interaction.options.getSubcommand();
+
+		const member = interaction.member as GuildMember;
+
+		const guild = interaction.guild as Guild;
+
+		const botGuildMember = guild.me as GuildMember;
+
+		await interaction.deferReply({ ephemeral: true });
+
+		await interaction.editReply({ content: 'test' });
+	},
+});
