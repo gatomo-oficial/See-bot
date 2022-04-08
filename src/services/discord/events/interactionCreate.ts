@@ -29,6 +29,10 @@ module.exports = async (
 			args: args,
 		});
 
-		await command.run(ctx);
+		await command
+			.run(ctx)
+			.catch((error: Error): void =>
+				client.discord.log.error(JSON.stringify(error, null, 2))
+			);
 	}
 };

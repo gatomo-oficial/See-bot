@@ -43,11 +43,11 @@ export class DiscordClient extends Client {
 		this.util = new DiscordClientUtil(this.client);
 
 		// Handlers
-		this.commandHandler = new CommandHandler(client);
-		this.eventHandler = new EventHandler(client);
+		this.commandHandler = new CommandHandler(this.client);
+		this.eventHandler = new EventHandler(this.client);
 
 		// Commands
-		this.commands = new CommandClient(client);
+		this.commands = new CommandClient(this.client);
 
 		// Extensions
 		this.extensions = {
@@ -80,7 +80,8 @@ export class DiscordClient extends Client {
 			`Starting ${this.client.logColors.cyan('Discord Client')}...`
 		);
 		await this.eventHandler.start();
-		await this.login(this.config.bot.token);
 		await this.commandHandler.start();
+
+		await this.login(this.config.bot.token);
 	}
 }

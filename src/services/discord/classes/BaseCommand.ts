@@ -4,7 +4,7 @@ import type { CommandContext } from './CommandContext';
 // External Types Imports
 import type { Snowflake } from 'discord.js';
 
-interface ICommandData {
+export interface ICommandData {
 	id: Snowflake | null;
 	type?: number | 1;
 	guild_id?: Snowflake;
@@ -16,7 +16,7 @@ interface ICommandData {
 	run: (ctx: CommandContext) => Promise<void>;
 }
 
-interface ICommandOptions {
+export interface ICommandOptions {
 	type: number;
 	name: string;
 	name_localizations?: Record<string, string>;
@@ -31,7 +31,7 @@ interface ICommandOptions {
 	autocomplete?: boolean;
 }
 
-interface ICommandChoise {
+export interface ICommandChoise {
 	name: string;
 	name_localizations?: Record<string, string>;
 	value: string;

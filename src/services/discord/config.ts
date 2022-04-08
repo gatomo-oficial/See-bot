@@ -23,7 +23,7 @@ export class DiscordClientConfig {
 		};
 
 		this.commands = {
-			update: false,
+			update: true,
 			delay: 5000,
 		};
 

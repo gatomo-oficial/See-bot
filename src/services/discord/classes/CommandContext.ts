@@ -4,7 +4,7 @@ import type { SeeClient } from '../../../client';
 // External Types Imports
 import type { CommandInteraction } from 'discord.js';
 
-interface ICommandContext {
+export interface ICommandContext {
 	client: SeeClient;
 	interaction: CommandInteraction;
 	args: (string | number | boolean | undefined)[];
